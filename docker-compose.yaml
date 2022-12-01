@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  app:
+    image: 'innayashna/football-manager:latest'
+    ports:
+      - 8080:8080
+    container_name: football-manager
+    depends_on:
+      - db
+    environment:
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://football-manager-db:5432/football-manager
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+
+  db:
+    image: 'postgres:13.1-alpine'
+    ports:
+      - 5432:5432
+    container_name: football-manager-db
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=football-manager
