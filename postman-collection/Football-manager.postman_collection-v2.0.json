@@ -1,0 +1,183 @@
+{
+	"info": {
+		"_postman_id": "de3fc780-e8b1-410a-89ae-0641af65ab2a",
+		"name": "Football-manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "22644810"
+	},
+	"item": [
+		{
+			"name": "Create player",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Dasha\",\n    \"age\": 21,\n    \"experience\": 1,\n    \"teamId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/v1/player/add"
+			},
+			"response": []
+		},
+		{
+			"name": "Create team",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Ukraine\",\n    \"account\": 1000000,\n    \"transferCommission\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/v1/team/add"
+			},
+			"response": []
+		},
+		{
+			"name": "Get player by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/v1/player/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Get team by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/v1/team/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all players",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/v1/player/all"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all teams",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/v1/team/all"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all players for the team",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/v1/team/2/players"
+			},
+			"response": []
+		},
+		{
+			"name": "Update player by id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Inna\",\n    \"age\": 21,\n    \"experience\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/v1/player/update/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Update team by id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Team-Ukraine-1\",\n    \"account\": 105000,\n    \"transferCommission\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/v1/team/update/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Transfer player",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/player/1/transfer?newTeamId=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"player",
+						"1",
+						"transfer"
+					],
+					"query": [
+						{
+							"key": "newTeamId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete player by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/api/v1/player/delete/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete team by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/api/v1/team/delete/1"
+			},
+			"response": []
+		}
+	]
+}
