@@ -73,7 +73,7 @@ class PlayerServiceImplTest {
         when(playerRepository.findById(1L)).thenReturn(Optional.of(player));
         playerService.updatePlayer(1L, dto);
         verify(playerRepository).save(player);
-        assertEquals(player.getAge(), dto.getAge());
+        assertEquals(player.getBirthDate(), dto.getBirthDate());
     }
 
     @Test

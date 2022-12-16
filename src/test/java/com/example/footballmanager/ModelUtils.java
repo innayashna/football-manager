@@ -7,6 +7,8 @@ import com.example.footballmanager.dto.UpdateTeamDto;
 import com.example.footballmanager.entity.Player;
 import com.example.footballmanager.entity.Team;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +17,8 @@ public class ModelUtils {
     public static AddPlayerDto getPlayerDto() {
         AddPlayerDto dto = new AddPlayerDto();
         dto.setName("Inna");
-        dto.setAge(21L);
-        dto.setExperience(2L);
+        dto.setBirthDate(LocalDate.parse("2004-02-22", DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        dto.setCareerStart(LocalDate.parse("2019-09-12", DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         dto.setTeamId(1L);
         return dto;
     }
@@ -25,15 +27,15 @@ public class ModelUtils {
         Player player = new Player();
         player.setId(1L);
         player.setName("Inna");
-        player.setAge(21L);
-        player.setExperience(2L);
+        player.setBirthDate(LocalDate.parse("2004-02-22", DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        player.setCareerStart(LocalDate.parse("2019-09-12", DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         player.setTeam(getTeam());
         return player;
     }
 
     public static UpdatePlayerDto getUpdatePlayerDto() {
         UpdatePlayerDto dto = new UpdatePlayerDto();
-        dto.setAge(22L);
+        dto.setBirthDate(LocalDate.parse("2003-02-22", DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         return dto;
     }
 

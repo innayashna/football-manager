@@ -19,8 +19,8 @@ public class PlayerDtoMapper extends AbstractConverter<Player, PlayerDto> {
         PlayerDto dto = new PlayerDto();
         dto.setId(player.getId());
         dto.setName(player.getName());
-        dto.setAge(player.getAge());
-        dto.setExperience(player.getExperience());
+        dto.setBirthDate(player.getBirthDate());
+        dto.setCareerStart(player.getCareerStart());
         dto.setTeamName(player.getTeam().getName());
         return dto;
     }

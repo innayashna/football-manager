@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.List;
 
 @Configuration
-public class MapperConfig {
+public class MapperConfiguration {
 
     /**
      * Provides a new ModelMapper object. Provides configuration for the object.

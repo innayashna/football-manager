@@ -37,7 +37,7 @@ public class TeamController {
      *
      * @param dto  {@link AddTeamDto};
      */
-    @PostMapping("/add")
+    @PostMapping("/")
     public ResponseEntity<HttpStatus> addTeam(@RequestBody @Validated AddTeamDto dto) {
         teamService.saveTeam(dto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
@@ -59,7 +59,7 @@ public class TeamController {
      *
      * @return list of {@link TeamDto}
      */
-    @GetMapping("/all")
+    @GetMapping("/")
     public ResponseEntity<List<TeamDto>> getAllTeams() {
         return ResponseEntity.status(HttpStatus.OK).body(teamService.getAllTeams());
     }
@@ -82,7 +82,7 @@ public class TeamController {
      * @param dto {@link UpdateTeamDto};
      * @return {@link TeamDto};
      */
-    @PatchMapping("/update/{id}")
+    @PatchMapping("/{id}")
     public ResponseEntity<TeamDto> updateTeam(@PathVariable Long id, @RequestBody @Validated UpdateTeamDto dto) {
         return ResponseEntity.status(HttpStatus.OK).body(teamService.updateTeam(id, dto));
     }
@@ -92,7 +92,7 @@ public class TeamController {
      *
      * @param id {@link Long};
      */
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<HttpStatus> deleteTeam(@PathVariable Long id) {
         teamService.deleteTeam(id);
         return ResponseEntity.status(HttpStatus.OK).build();

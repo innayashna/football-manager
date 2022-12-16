@@ -4,6 +4,7 @@ import com.example.footballmanager.dto.AddPlayerDto;
 import com.example.footballmanager.dto.PlayerDto;
 import com.example.footballmanager.dto.UpdatePlayerDto;
 import com.example.footballmanager.exeption.InsufficientFundException;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -52,5 +53,6 @@ public interface PlayerService {
      * @param playerId {@link Long};
      * @param newTeamId {@link Long};
      */
+    @Transactional
     void transferPlayer(Long playerId, Long newTeamId) throws InsufficientFundException;
 }

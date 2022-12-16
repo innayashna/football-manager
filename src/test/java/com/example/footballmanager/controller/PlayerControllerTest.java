@@ -45,12 +45,12 @@ class PlayerControllerTest {
     void addPlayer() throws Exception {
         String content = "{\n"
                 + "  \"name\": \"name\",\n"
-                + "  \"age\": 21,\n"
-                + "  \"experience\": 1,\n"
+                + "  \"birthDate\": \"2004-02-22\",\n"
+                + "  \"careerStart\": \"2019-09-12\",\n"
                 + "  \"teamId\": 1\n"
                 + "}";
 
-        mockMvc.perform(post(PLAYER_CONTROLLER_LINK + "/add")
+        mockMvc.perform(post(PLAYER_CONTROLLER_LINK)
                         .content(content)
                         .contentType(MediaType.APPLICATION_JSON))
                         .andExpect(status().isCreated());
@@ -58,13 +58,13 @@ class PlayerControllerTest {
 
     @Test
     void getPlayer() throws Exception {
-        mockMvc.perform(get(PLAYER_CONTROLLER_LINK + "/1"))
+        mockMvc.perform(get(PLAYER_CONTROLLER_LINK + "1"))
                 .andExpect(status().isOk());
     }
 
     @Test
     void getAllPlayers() throws Exception {
-        mockMvc.perform(get(PLAYER_CONTROLLER_LINK + "/all"))
+        mockMvc.perform(get(PLAYER_CONTROLLER_LINK))
                 .andExpect(status().isOk());
     }
 
@@ -74,7 +74,7 @@ class PlayerControllerTest {
                 + "  \"name\": \"Inna\"\n"
                 + "}";
 
-        mockMvc.perform(patch(PLAYER_CONTROLLER_LINK + "/update/1")
+        mockMvc.perform(patch(PLAYER_CONTROLLER_LINK + "1")
                         .content(content)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
@@ -82,12 +82,12 @@ class PlayerControllerTest {
 
     @Test
     void deletePlayer() throws Exception {
-        mockMvc.perform(delete(PLAYER_CONTROLLER_LINK + "/delete/1"));
+        mockMvc.perform(delete(PLAYER_CONTROLLER_LINK + "1"));
     }
 
     @Test
     void transferPlayer() throws Exception {
-        mockMvc.perform(patch(PLAYER_CONTROLLER_LINK + "/1/transfer?newTeamId=1"))
+        mockMvc.perform(patch(PLAYER_CONTROLLER_LINK + "1/transfer?newTeamId=1"))
                 .andExpect(status().isOk());
     }
 }

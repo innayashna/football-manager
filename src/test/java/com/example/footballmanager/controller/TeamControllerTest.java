@@ -50,7 +50,7 @@ class TeamControllerTest {
                 + "  \"transferCommission\": 1\n"
                 + "}";
 
-        mockMvc.perform(post(TEAM_CONTROLLER_LINK + "/add")
+        mockMvc.perform(post(TEAM_CONTROLLER_LINK)
                         .content(content)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated());
@@ -58,19 +58,19 @@ class TeamControllerTest {
 
     @Test
     void getTeam() throws Exception {
-        mockMvc.perform(get(TEAM_CONTROLLER_LINK + "/1"))
+        mockMvc.perform(get(TEAM_CONTROLLER_LINK + "1"))
                 .andExpect(status().isOk());
     }
 
     @Test
     void getAllTeams() throws Exception {
-        mockMvc.perform(get(TEAM_CONTROLLER_LINK + "/all"))
+        mockMvc.perform(get(TEAM_CONTROLLER_LINK))
                 .andExpect(status().isOk());
     }
 
     @Test
     void getAllPlayers() throws Exception {
-        mockMvc.perform(get(TEAM_CONTROLLER_LINK + "/1/players"))
+        mockMvc.perform(get(TEAM_CONTROLLER_LINK + "1/players"))
                 .andExpect(status().isOk());
     }
 
@@ -80,7 +80,7 @@ class TeamControllerTest {
                 + "  \"name\": \"name\"\n"
                 + "}";
 
-        mockMvc.perform(patch(TEAM_CONTROLLER_LINK + "/update/1")
+        mockMvc.perform(patch(TEAM_CONTROLLER_LINK + "1")
                 .content(content)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
@@ -88,7 +88,7 @@ class TeamControllerTest {
 
     @Test
     void deleteTeam() throws Exception {
-        mockMvc.perform(delete(TEAM_CONTROLLER_LINK + "/delete/1"))
+        mockMvc.perform(delete(TEAM_CONTROLLER_LINK + "1"))
                 .andExpect(status().isOk());
     }
 }
