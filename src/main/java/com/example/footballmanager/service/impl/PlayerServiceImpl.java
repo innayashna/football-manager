@@ -16,6 +16,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -65,8 +67,8 @@ public class PlayerServiceImpl implements PlayerService {
     public AddPlayerDto updatePlayer(Long id, UpdatePlayerDto dto) {
         Player player = findPlayerById(id);
         Optional.ofNullable(dto.getName()).ifPresent(player::setName);
-        Optional.ofNullable(dto.getAge()).ifPresent(player::setAge);
-        Optional.ofNullable(dto.getExperience()).ifPresent(player::setExperience);
+        Optional.ofNullable(dto.getBirthDate()).ifPresent(player::setBirthDate);
+        Optional.ofNullable(dto.getCareerStart()).ifPresent(player::setCareerStart);
         playerRepository.save(player);
         return modelMapper.map(player, AddPlayerDto.class);
     }
@@ -78,7 +80,7 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
-    public void transferPlayer(Long playerId, Long newTeamId) throws InsufficientFundException {
+    public void transferPlayer(Long playerId, Long newTeamId) {
         Player player = findPlayerById(playerId);
         Team oldTeam = findTeamById(player.getTeam().getId());
         Team newTeam = findTeamById(newTeamId);
@@ -105,7 +107,9 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     private long calculateTransferPrice(Player player, Team oldTeam) {
-        long transferPrice = (player.getExperience() * PLAYER_TRANSFER_COEFFICIENT) / player.getAge();
+        long playerExperience = ChronoUnit.YEARS.between(player.getCareerStart(), LocalDate.now());
+        long playerAge = ChronoUnit.YEARS.between(player.getBirthDate(), LocalDate.now());
+        long transferPrice = (playerExperience * PLAYER_TRANSFER_COEFFICIENT) / playerAge;
         long commission = (transferPrice * oldTeam.getTransferCommission()) / PERCENTAGE_COEFFICIENT;
         transferPrice += commission;
         return transferPrice;

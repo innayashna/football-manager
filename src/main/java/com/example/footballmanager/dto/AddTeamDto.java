@@ -3,25 +3,25 @@ package com.example.footballmanager.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class AddTeamDto {
 
-    @NonNull
+    @NotNull
     private String name;
 
     @Min(0)
-    @NonNull
+    @NotNull
     private Long account;
 
     @Min(0)
     @Max(10)
-    @NonNull
+    @NotNull
     private Long transferCommission;
 }

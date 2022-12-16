@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.time.LocalDate;
+
 
 @Data
 @Entity
@@ -28,11 +30,11 @@ public class Player {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "age", nullable = false)
-    private Long age;
+    @Column(name = "birth_date", nullable = false)
+    private LocalDate birthDate;
 
-    @Column(name = "experience", nullable = false)
-    private Long experience;
+    @Column(name = "career_start", nullable = false)
+    private LocalDate careerStart;
 
     @ManyToOne
     @JoinColumn(name = "team_id")

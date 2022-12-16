@@ -29,9 +29,9 @@ public class AddPlayerDtoMapper extends AbstractConverter<AddPlayerDto, Player> 
     @Override
     protected Player convert(AddPlayerDto dto) {
         Player player = new Player();
-        player.setAge(dto.getAge());
+        player.setBirthDate(dto.getBirthDate());
         player.setName(dto.getName());
-        player.setExperience(dto.getExperience());
+        player.setCareerStart(dto.getCareerStart());
         player.setTeam(teamRepository.findById(dto.getTeamId()).orElseThrow(
                 () -> new TeamNotFoundException(TEAM_WAS_NOT_FOUND + dto.getTeamId())));
         return player;

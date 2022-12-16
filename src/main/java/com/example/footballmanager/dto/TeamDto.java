@@ -3,8 +3,8 @@ package com.example.footballmanager.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Data
@@ -12,16 +12,16 @@ import java.util.List;
 @AllArgsConstructor
 public class TeamDto {
 
-    @NonNull
+    @NotNull
     private Long id;
 
-    @NonNull
+    @NotNull
     private String name;
 
-    @NonNull
+    @NotNull
     private Long account;
 
-    @NonNull
+    @NotNull
     private Long transferCommission;
 
     private List<PlayerDto> players;

@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"Dasha\",\n    \"age\": 21,\n    \"experience\": 1,\n    \"teamId\": 1\n}",
+					"raw": "{\n    \"name\": \"Dasha\",\n    \"birthDate\": \"1999-05-13\",\n    \"careerStart\": \"2020-06-22\",\n    \"teamId\": 1\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -21,7 +21,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/v1/player/add",
+					"raw": "http://localhost:8080/api/v1/player/",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -31,7 +31,7 @@
 						"api",
 						"v1",
 						"player",
-						"add"
+						""
 					]
 				}
 			},
@@ -52,7 +52,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/v1/team/add",
+					"raw": "http://localhost:8080/api/v1/team/",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -62,7 +62,7 @@
 						"api",
 						"v1",
 						"team",
-						"add"
+						""
 					]
 				}
 			},
@@ -74,7 +74,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/v1/player/1",
+					"raw": "http://localhost:8080/api/v1/player/4",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -84,7 +84,7 @@
 						"api",
 						"v1",
 						"player",
-						"1"
+						"4"
 					]
 				}
 			},
@@ -118,7 +118,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/v1/player/all",
+					"raw": "http://localhost:8080/api/v1/player/",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -128,7 +128,7 @@
 						"api",
 						"v1",
 						"player",
-						"all"
+						""
 					]
 				}
 			},
@@ -140,7 +140,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/v1/team/all",
+					"raw": "http://localhost:8080/api/v1/team/",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -150,7 +150,7 @@
 						"api",
 						"v1",
 						"team",
-						"all"
+						""
 					]
 				}
 			},
@@ -186,7 +186,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"Inna\",\n    \"age\": 21,\n    \"experience\": 2\n}",
+					"raw": "{\n    \"name\": \"Inna\",\n    \"birthDate\": \"1999-05-13\",\n    \"careerStart\": \"2020-06-22\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -194,7 +194,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/v1/player/update/1",
+					"raw": "http://localhost:8080/api/v1/player/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -204,7 +204,6 @@
 						"api",
 						"v1",
 						"player",
-						"update",
 						"1"
 					]
 				}
@@ -226,7 +225,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/v1/team/update/1",
+					"raw": "http://localhost:8080/api/v1/team/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -236,7 +235,6 @@
 						"api",
 						"v1",
 						"team",
-						"update",
 						"1"
 					]
 				}
@@ -258,7 +256,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/v1/player/1/transfer?newTeamId=2",
+					"raw": "http://localhost:8080/api/v1/player/7/transfer?newTeamId=2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -268,7 +266,7 @@
 						"api",
 						"v1",
 						"player",
-						"1",
+						"7",
 						"transfer"
 					],
 					"query": [
@@ -287,7 +285,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/v1/player/delete/2",
+					"raw": "http://localhost:8080/api/v1/player/4",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -297,8 +295,7 @@
 						"api",
 						"v1",
 						"player",
-						"delete",
-						"2"
+						"4"
 					]
 				}
 			},
@@ -310,7 +307,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/v1/team/delete/1",
+					"raw": "http://localhost:8080/api/v1/team/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -320,7 +317,6 @@
 						"api",
 						"v1",
 						"team",
-						"delete",
 						"1"
 					]
 				}

@@ -3,7 +3,6 @@ package com.example.footballmanager.controller;
 import com.example.footballmanager.dto.AddPlayerDto;
 import com.example.footballmanager.dto.PlayerDto;
 import com.example.footballmanager.dto.UpdatePlayerDto;
-import com.example.footballmanager.exeption.InsufficientFundException;
 import com.example.footballmanager.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,7 +37,7 @@ public class PlayerController {
      *
      * @param dto {@link AddPlayerDto};
      */
-    @PostMapping("/add")
+    @PostMapping("/")
     public ResponseEntity<HttpStatus> addPlayer(@RequestBody @Validated AddPlayerDto dto) {
         playerService.savePlayer(dto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
@@ -60,7 +59,7 @@ public class PlayerController {
      *
      * @return list of {@link PlayerDto}
      */
-    @GetMapping("/all")
+    @GetMapping("/")
     public ResponseEntity<List<PlayerDto>> getAllPlayers() {
         return ResponseEntity.status(HttpStatus.OK).body(playerService.getAllPlayers());
     }
@@ -72,7 +71,7 @@ public class PlayerController {
      * @param dto {@link AddPlayerDto};
      * @return {@link AddPlayerDto};
      */
-    @PatchMapping("/update/{id}")
+    @PatchMapping("/{id}")
     public ResponseEntity<AddPlayerDto> updatePlayer(@PathVariable Long id, @RequestBody @Validated UpdatePlayerDto dto) {
         return ResponseEntity.status(HttpStatus.OK).body(playerService.updatePlayer(id, dto));
     }
@@ -82,7 +81,7 @@ public class PlayerController {
      *
      * @param id {@link Long};
      */
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<HttpStatus> deletePlayer(@PathVariable Long id) {
         playerService.deletePlayer(id);
         return ResponseEntity.status(HttpStatus.OK).build();
@@ -96,7 +95,7 @@ public class PlayerController {
      */
     @PatchMapping("/{playerId}/transfer")
     public ResponseEntity<HttpStatus> transferPlayer(@PathVariable Long playerId,
-                                                     @RequestParam Long newTeamId) throws InsufficientFundException {
+                                                     @RequestParam Long newTeamId) {
         playerService.transferPlayer(playerId, newTeamId);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
